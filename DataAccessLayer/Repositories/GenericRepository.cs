@@ -45,6 +45,6 @@ namespace DataAccessLayer.Repositories
             c.SaveChanges();
         }
     }
-    {
+    
     }
-}
+
