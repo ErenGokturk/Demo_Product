@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.FluentValidation
 {
-    public class ProductValidator:AbstractValidator<Product>
+    public class JobValidator:AbstractValidator<Product>
 
     {
-        public ProductValidator()
+        public JobValidator()
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage("Ürün Adını Boş Geçemezsiniz");
             RuleFor(x => x.Name).MinimumLength(3).WithMessage("Ürün adı En az 3 Karakter Olmalıdır.");

@@ -22,7 +22,7 @@ namespace Demo_Product.Controllers
         [HttpPost]
         public IActionResult AddProduct(Product p) 
         {
-            ProductValidator validationRules = new ProductValidator();  
+            JobValidator validationRules = new JobValidator();  
             ValidationResult result = validationRules.Validate(p);
             if (result.IsValid) { 
          productManager.TInsert(p);
@@ -40,6 +40,19 @@ namespace Demo_Product.Controllers
         public IActionResult DeleteProduct(int id) {
             var value = productManager.TGetById(id);
             productManager.TDelete(value);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult UpdateProduct(int id) {
+            var value=productManager.TGetById(id);
+            
+            return View(value);
+        }
+        [HttpPost]
+        public IActionResult UpdateProduct(Product p) 
+        {
+            
+            productManager.TUpdate(p);
             return RedirectToAction("Index");
         }
     }
